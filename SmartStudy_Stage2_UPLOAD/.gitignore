@@ -1,0 +1,18 @@
+# Secret keys and local configs
+.env
+.env.*
+!.env.example
+config.local.json
+# User-specific data, exports and Python caches
+*.db
+*.db-shm
+*.db-wal
+*.sqlite
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+.DS_Store
+*.csv
+!sample_data/*.csv

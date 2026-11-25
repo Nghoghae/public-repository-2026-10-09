@@ -1,10 +1,15 @@
-# Local feature demonstration evidence
+# User-recorded demonstrations
 
-The videos in this folder were captured from the runnable application, with synthetic data. They are **not** public GitHub/video URLs, and they are **not** a substitute for complete instructor-accessible recordings of all required features.
-
-- `gui_walkthrough.mp4` (~58 seconds): actual Tkinter GUI interactions; offline `TestLLM` is used for AI examples, **NOT** a real provider. Feature segments: F02 ~00:04-00:14, F05 ~00:14-00:17, F08 ~00:17-00:20, F07 ~00:20-00:28, F06 ~00:23-00:31, F09 ~00:31-00:35, F11 ~00:35-00:38 simulated AI, F04 ~00:38-00:43 simulated AI, F01 ~00:43-00:48 simulated AI, F10/F12 settings ~00:48-00:53.
-- `cli_walkthrough.mp4` (~36 seconds): real xterm executing the actual Python CLI against a temporary SQLite database. Demonstrates CLI creation, ranking, commitments, availability, planning, approval, task progress and status. Late commands including export may not be captured in the trimmed local recording.
-
-**Still needed for a complete Stage 2 submission:** actual LLM API request with your local key (F01/F03/F04/F11); PDF import video (F03); due reminder alert (F10); complete export demonstration (F12); relevant alternative/error cases; exact accessible video links and timestamps in your public GitHub repository; any additional requirements from your instructor. Do not expose `.env` or tokens when filming.
-
-The recording scripts (`record_gui_demo.py`, `record_cli_demo.py`, `terminal_walkthrough.sh`) are optional utilities for Linux with Xvfb/ffmpeg/Pillow/xterm; they are **not** required to run SmartStudy. Their use of an injected test double is disclosed in the GUI output itself.
+- F01: [F01_AI_Assistant.mov](user_recordings/F01_AI_Assistant.mov) — evidence at 00:32
+- F02: [F02_Course_and_Task_Management.mov](user_recordings/F02_Course_and_Task_Management.mov) — evidence at 01:22
+- F03: [F03_PDF_Deadline_Import.mov](user_recordings/F03_PDF_Deadline_Import.mov) — evidence at 00:26
+- F04: [F04_Notes_Extraction.mov](user_recordings/F04_Notes_Extraction.mov) — evidence at 00:36
+- F05: [F05_Priority_Ranking.mov](user_recordings/F05_Priority_Ranking.mov) — evidence at 00:20
+- F06: [F07_Conflict_Avoidance.mov](user_recordings/F07_Conflict_Avoidance.mov) — evidence at 01:19
+- F07: [F07_Conflict_Avoidance.mov](user_recordings/F07_Conflict_Avoidance.mov) — evidence at 01:19
+- F08: [F08_Progress_Tracking.mov](user_recordings/F08_Progress_Tracking.mov) — evidence at 00:43
+- F09: [F09_Replanning.mov](user_recordings/F09_Replanning.mov) — evidence at 00:19
+- F10: [F10_Deadline_Reminders.mov](user_recordings/F10_Deadline_Reminders.mov) — evidence at 00:30
+- F11: [F11_AI_Plan_Explanation.mov](user_recordings/F11_AI_Plan_Explanation.mov) — evidence at 00:45
+- F12: [F12_CSV_Export.mov](user_recordings/F12_CSV_Export.mov) — evidence at 00:35
+- [CLI file input](user_recordings/CLI_File_Input.mp4) — cropped terminal; output at 00:29. GUI task retrieval is in F01; identical tool selection not confirmed.

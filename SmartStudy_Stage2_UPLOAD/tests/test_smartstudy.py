@@ -215,3 +215,17 @@ def test_availability_window(app):
     p = app.preview('2027-01-04')
     assert all(17 <= parse_dt(s).hour < 20 and parse_dt(e).hour <= 20 for _,_,s,e in p.sessions)
     with pytest.raises(ValidationError): app.set_availability(21, 9)
+
+
+def test_cli_input_file(app, tmp_path, capsys):
+    from smartstudy.cli import parser, execute
+    seed(app)
+    request = tmp_path / 'task.txt'
+    request.write_text('Show my tasks', encoding='utf-8')
+    execute(parser().parse_args(['ask', '--input', str(request)]), app)
+    assert 'Homework 7' in capsys.readouterr().out
+    with pytest.raises(ValidationError):
+        execute(parser().parse_args(['ask', 'text', '--input', str(request)]), app)
+    request.write_text('  ', encoding='utf-8')
+    with pytest.raises(ValidationError):
+        execute(parser().parse_args(['ask', '--input', str(request)]), app)

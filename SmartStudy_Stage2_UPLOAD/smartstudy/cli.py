@@ -43,7 +43,8 @@ def parser():
         a.add_argument('--approve', action='store_true', help='Commit the generated proposal (not valid with explain)')
 
     ai = groups.add_parser('ask', help='Use a model to select read-only planning tools')
-    ai.add_argument('text', nargs='+')
+    ai.add_argument('text', nargs='*', help='Natural-language request')
+    ai.add_argument('--input', type=Path, help='Read a UTF-8 natural-language request from a file')
     notes = groups.add_parser('notes', help='Extract draft deadlines from text')
     notes.add_argument('text', nargs='+')
     notes.add_argument('--course', type=int, help='Course to add confirmed drafts to')
@@ -125,7 +126,12 @@ def execute(args, controller):
         else:
             print('PREVIEW ONLY. Run with --approve to commit this proposal.')
     elif args.action == 'ask':
-        print(controller.handle_request(' '.join(args.text)))
+        if bool(args.text) == bool(args.input):
+            raise ValidationError('Provide either request text or --input FILE, not both.')
+        request = args.input.read_text(encoding='utf-8').strip() if args.input else ' '.join(args.text).strip()
+        if not request:
+            raise ValidationError('Request must not be empty.')
+        print(controller.handle_request(request))
     elif args.action == 'notes':
         print_drafts(controller, controller.extract_notes(' '.join(args.text)), args.course, args.confirm)
     elif args.action == 'import':

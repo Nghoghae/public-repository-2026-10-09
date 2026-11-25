@@ -16,7 +16,7 @@ SmartStudy helps a student enter courses and academic tasks, import tentative de
 ## Setup
 
 ```bash
-cd SmartStudy_Stage2
+cd SmartStudy_Stage2_UPLOAD
 python -m venv .venv
 source .venv/bin/activate         # Windows: .venv\Scripts\activate
 python -m pip install -r requirements.txt
@@ -79,6 +79,14 @@ python -m smartstudy notes 'Lab 2 is due 2026-12-08 at 17:00' --course 1 --confi
 python -m smartstudy import /path/to/outline.pdf --course 1 --confirm
 ```
 
+### Run a natural-language task from a file
+
+```bash
+python -m smartstudy ask --input sample_data/task.txt
+```
+
+The UTF-8 file contains `Show my tasks`. Configure a real API key first. The agent reads the file, selects an allowed read-only tool through the LLM, and prints its result. Use either positional request text or `--input FILE`, not both. Empty files are rejected. Use `--db PATH` before `ask` to select a database. `python -m smartstudy ask --help` lists the options. The Python module is the standalone terminal entry point; no Java JAR is required.
+
 ### CLI command summary
 
 | Group | Operations | Feature IDs |
@@ -131,8 +139,12 @@ The suite uses a controlled mock LLM to verify routing, extraction and explanati
 
 ## Deliverables and grading evidence
 
-The `stage2-report.pdf` and `stage2-report.docx` describe implementation and discrepancies from Stage 1. The `demos/` directory contains instructions and, where present, actual locally captured GUI/CLI demonstration media. Video samples using a controlled FakeLLM must be **identified as such**, not presented as proof of live model integration. Add genuine video recordings of any AI-dependent features using *your own* configured key and update the report with accurate direct video links/timestamps.
+The `stage2-report.pdf` and `stage2-report.docx` describe implementation and discrepancies from Stage 1. The `demos/` directory contains instructions and, where present, actual locally captured GUI/CLI demonstration media. Video samples using a controlled FakeLLM must be **identified as such**, not presented as proof of live model integration. User-recorded evidence is indexed in demos/README.md.
 
 Stage 2 requires **five meaningful code commits in each period**: Oct 20-26, Oct 27-Nov 2, and Nov 3-9, 2026 (Toronto local time). Those periods and the Nov 10 submission deadline have already passed as of project preparation. Do **not** backdate commits or invent history. Document your real repository's records and contact your instructor about a late submission if applicable.
 
 **Before submitting:** run locally; understand/review the code; set your actual `.env` privately; make your own meaningful commits; test GUI and CLI; record genuine feature demonstrations; upload to the existing public GitHub repository; verify sample commands, `.gitignore`, report and video links; and submit the repository URL through the course system.
+
+## Additional Stage 2 evidence
+
+See [feature documentation](docs/FEATURES.md) and [new demo recording index](demos/README.md). The report screenshots are sampled from user recordings. The demo index lists the new user recordings and remaining verification caveats.
